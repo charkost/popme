@@ -12,8 +12,11 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Open sites in browser from terminal}
   gem.homepage      = ""
 
+  gem.add_dependency "launchy"
+  gem.add_dependency "json"
+
   gem.files         = `git ls-files`.split($/)
-  gem.executables   << "popme"
+  gem.executables   << "pop"
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 end

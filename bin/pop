@@ -8,13 +8,21 @@ rescue LoadError
   require "popme"
 end
 
-storage = Agem::Storage.new
-if ARGV[1]
-  if ARGV[1] == "add"
+include Popme
 
+storage = Storage.new
+if ARGV[0]
+  if ARGV[0] == "add"
+    if ARGV[1] && ARGV[2]
+      storage.add_site(ARGV[1], ARGV[2])
+    else
+      puts "Please give a key-site pair to add"
+    end
+  elsif ARGV[0] == "list" # prints the list of sites and keys
+    storage.print_list
   else
-    if storage.find_site(ARGV[1])
-      Launchy.open(storage.list[ARGV[1]])
+    if storage.find_site(ARGV[0])
+      Launchy.open(storage.list[ARGV[0]])
     else
       puts "No such entry"
     end
@@ -24,7 +32,7 @@ else
   puts 'pop list                view a list of all your key-sites'
   puts 'pop <key>               open the <value> for the selected <key> on browser'
   puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
-  puts 'pop help                view this menu'
+  puts 'pop                     view this menu'
   puts 'all other documentation is located at:'
   puts ' https://github.com/eavgerinos/popme'
 end
