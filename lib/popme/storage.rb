@@ -3,6 +3,8 @@ require "json"
 module Popme
   class Storage
     JSON_FILE = "#{ENV['HOME']}/.popme"
+    
+    attr_reader :list
 
     def initialize
       @list = {}
@@ -38,10 +40,6 @@ module Popme
 
     def find_site(key)
       @list[key]
-    end
-
-    def list
-      @list
     end
 
     def print_list
