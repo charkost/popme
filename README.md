@@ -2,6 +2,8 @@
 
 Open pages in browser through terminal
 
+[![Code Climate](https://codeclimate.com/github/eavgerinos/popme.png)](https://codeclimate.com/github/eavgerinos/popme)
+
 ## Installation
 
     $ gem install popme
