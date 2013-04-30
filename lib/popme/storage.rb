@@ -29,7 +29,7 @@ module Popme
     end
 
     def save
-      file = File.open(JSON_FILE, 'w') { |f| f.write to_file }
+      File.open(JSON_FILE, 'w') { |f| f.write(to_file) }
     end
 
     def to_file
