@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+begin
+  require "launchy"
+  require "popme"
+rescue LoadError
+  require "rubygems"
+  require "launchy"
+  require "popme"
+end
+
+storage = Agem::Storage.new
+if ARGV[1]
+  if ARGV[1] == "add"
+
+  else
+    if storage.find_site(ARGV[1])
+      Launchy.open(storage.list[ARGV[1]])
+    else
+      puts "No such entry"
+    end
+  end
+else
+  puts '### PopMe Help ###'
+  puts 'pop list                view a list of all your key-sites'
+  puts 'pop <key>               open the <value> for the selected <key> on browser'
+  puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
+  puts 'pop help                view this menu'
+  puts 'all other documentation is located at:'
+  puts ' https://github.com/eavgerinos/popme'
+end
