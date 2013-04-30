@@ -10,7 +10,7 @@ Open pages in browser through terminal
 
 Just a simple gem.
 
-It stores a file (~/.popme) with key-value pairs like this
+It stores a file (`~/.popme`) with key-value pairs like this
 
 ```
 {
