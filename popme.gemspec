@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Popme::VERSION
   gem.authors       = ["Angel Avgerinos"]
   gem.email         = ["evaggelos.avgerinos@gmail.com"]
-  gem.description   = %q{Open sites in browser from terminal}
-  gem.summary       = %q{Open sites in browser from terminal}
+  gem.description   = %q{Open sites in browser from the terminal.}
+  gem.summary       = %q{Open sites in browser from the terminal.}
   gem.homepage      = "https://github.com/eavgerinos/popme"
 
   gem.add_dependency "launchy"
