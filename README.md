@@ -1,6 +1,6 @@
 # Popme
 
-Open pages in browser through terminal
+Open pages in browser through the terminal.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Open pages in browser through terminal
 
 Just a simple gem.
 
-It stores a file (`~/.popme`) with key-value pairs like this
+It stores a file (`~/.popme`) with key-value pairs like this:
 
 ```
 {
@@ -19,11 +19,11 @@ It stores a file (`~/.popme`) with key-value pairs like this
 }
 ```
 
-It comes with the "google" pair by default
+It comes with the "google" pair by default.
 
 ### Open
 
-You can open a page that exists in your file like this
+You can open a page that exists in your file like this:
 
 ```
 $ pop google
@@ -31,13 +31,13 @@ $ pop google
 
 ### Add
 
-You can add a page in the file like this
+You can add a page in the file like this:
 
 ```
 pop add <key> <value>
 ```
 
-for example
+For example:
 
 ```
 $ pop add facebook http://facebook.com
@@ -45,7 +45,7 @@ $ pop add facebook http://facebook.com
 
 ### List
 
-You can see the list of your key-value pairs by giving
+You can see the list of your key-value pairs by doing:
 
 ```
 $ pop list
@@ -53,7 +53,7 @@ $ pop list
 
 ### Help
 
-To view the help menu just give
+To view the help menu just do:
 
 ```
 pop
