@@ -51,6 +51,14 @@ You can see the list of your key-value pairs by giving
 $ pop list
 ```
 
+### Help
+
+To view the help menu just give
+
+```
+pop
+```
+
 ## Contributing
 
 1. Fork it

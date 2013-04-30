@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["evaggelos.avgerinos@gmail.com"]
   gem.description   = %q{Open sites in browser from terminal}
   gem.summary       = %q{Open sites in browser from terminal}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/eavgerinos/popme"
 
   gem.add_dependency "launchy"
   gem.add_dependency "json"
