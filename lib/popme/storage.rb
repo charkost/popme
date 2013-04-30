@@ -22,8 +22,7 @@ module Popme
 
     def populate
       unless @bootstraped
-        storage = JSON.parse File.read(JSON_FILE) 
-        storage.each do |key, value|
+        JSON.parse(File.read(JSON_FILE)).each do |key, value|
           @list[key] = value
         end
       end
