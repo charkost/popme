@@ -31,10 +31,10 @@ module Popme
     end
 
     def save
-      File.open(JSON_FILE, 'w') { |f| f.write(to_file) }
+      File.open(JSON_FILE, 'w') { |f| f.write(to_json) }
     end
 
-    def to_file
+    def to_json
       @list.to_json
     end
 
