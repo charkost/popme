@@ -25,7 +25,7 @@ It comes with the "google" pair by default.
 
 ### Open
 
-You can open a page that exists in your file like this:
+You can open a site that exists in your file like this:
 
 ```
 $ pop google
@@ -33,7 +33,7 @@ $ pop google
 
 ### Add
 
-You can add a page in the file like this:
+You can add a site in the file like this:
 
 ```
 $ pop add <key> <value>
@@ -45,6 +45,20 @@ For example:
 $ pop add facebook http://facebook.com
 ```
 
+### Remove
+
+You can remove a site like this:
+
+```
+$ pop rm <key>
+```
+
+For example:
+
+```
+$ pop rm google
+```
+
 ### List
 
 You can see the list of your key-value pairs by doing:
@@ -53,9 +67,27 @@ You can see the list of your key-value pairs by doing:
 $ pop list
 ```
 
+Or
+
+```
+$ pop -l
+```
+
 ### Help
 
 To view the help menu just do:
+
+```
+$ pop help
+```
+
+Or 
+
+```
+$ pop -h
+```
+
+Or 
 
 ```
 $ pop
