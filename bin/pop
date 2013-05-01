@@ -9,5 +9,6 @@ if ARGV[0]
     Popme::CLI.start("open",ARGV[0])
   end
 else
-  Popme::CLI.help
+  cli = Popme::CLI.new
+  cli.help
 end
