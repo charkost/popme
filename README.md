@@ -1,4 +1,4 @@
-# Popme
+# PopMe
 
 Open sites in browser through the terminal.
 
