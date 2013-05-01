@@ -1,38 +1,13 @@
 #!/usr/bin/env ruby
-begin
-  require "launchy"
-  require "popme"
-rescue LoadError
-  require "rubygems"
-  require "launchy"
-  require "popme"
-end
-
-include Popme
-
-storage = Storage.new
+require "popme/cli"
+require "popme/storage"
+commands = %[add list -l help -h]
 if ARGV[0]
-  if ARGV[0] == "add"
-    if ARGV[1] && ARGV[2]
-      storage.add_site(ARGV[1], ARGV[2])
-    else
-      puts "Please give a key-site pair to add"
-    end
-  elsif ARGV[0] == "list" # prints the list of sites and keys
-    storage.print_list
+  if commands.include?(ARGV[0])
+    Popme::CLI.start(ARGV)
   else
-    if storage.find_site(ARGV[0])
-      Launchy.open(storage.list[ARGV[0]])
-    else
-      puts "No such entry"
-    end
+    Popme::CLI.start("open",ARGV[0])
   end
 else
-  puts '### PopMe Help ###'
-  puts 'pop list                view a list of all your key-sites'
-  puts 'pop <key>               open the <value> for the selected <key> on browser'
-  puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
-  puts 'pop                     view this menu'
-  puts 'all other documentation is located at:'
-  puts ' https://github.com/eavgerinos/popme'
+  Popme::CLI.help
 end

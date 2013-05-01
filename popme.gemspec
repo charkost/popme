@@ -14,7 +14,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "launchy"
   gem.add_dependency "json"
-
+  gem.add_dependency "thor",            "~> 0.17"
+  
   gem.files         = `git ls-files`.split($/)
   gem.executables   << "pop"
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
