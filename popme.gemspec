@@ -6,8 +6,8 @@ require 'popme/version'
 Gem::Specification.new do |gem|
   gem.name          = "popme"
   gem.version       = Popme::VERSION
-  gem.authors       = ["Angel Avgerinos"]
-  gem.email         = ["evaggelos.avgerinos@gmail.com"]
+  gem.authors       = ["Angel Avgerinos", "Steve Klabnik"]
+  gem.email         = ["evaggelos.avgerinos@gmail.com", "steve@steveklabnik.com"]
   gem.description   = %q{Open sites in browser from the terminal.}
   gem.summary       = %q{Open sites in browser from the terminal.}
   gem.homepage      = "https://github.com/eavgerinos/popme"
