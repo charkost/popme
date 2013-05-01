@@ -1,6 +1,6 @@
 # Popme
 
-Open pages in browser through the terminal.
+Open sites in browser through the terminal.
 
 [![Code Climate](https://codeclimate.com/github/eavgerinos/popme.png)](https://codeclimate.com/github/eavgerinos/popme)
 
@@ -36,7 +36,7 @@ $ pop google
 You can add a page in the file like this:
 
 ```
-pop add <key> <value>
+$ pop add <key> <value>
 ```
 
 For example:
@@ -58,7 +58,7 @@ $ pop list
 To view the help menu just do:
 
 ```
-pop
+$ pop
 ```
 
 ## Contributing
