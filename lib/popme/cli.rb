@@ -5,6 +5,7 @@ module Popme
   class CLI < Thor
 
     map "-l" => :list
+    map "-h" => :help
 
     def initialize(*args)
       super
@@ -37,6 +38,11 @@ module Popme
     desc "open", "opens the given key if it exists"  
     def open(key)
       Launchy.open(@storage.find_site(key))
+    end
+
+    desc "rm [KEY]", "removes selected key if it exists" 
+    def rm(key)
+      @storage.remove_site(key)
     end
   end
 end

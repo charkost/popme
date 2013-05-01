@@ -51,7 +51,17 @@ module Popme
     def add_site(key, value)
       @list[key] = value
       save
-      puts "#{key} => #{value} saved to list"
+      puts "#{key} => #{value} saved to list."
+    end
+
+    def remove_site(key)
+      if find_site(key)
+        @list.delete(key) 
+        save
+        puts "#{key} deleted."
+      else
+        puts "Key: #{key} does not exist."
+      end
     end
   end
 end
