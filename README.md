@@ -17,7 +17,7 @@ Just a simple gem.
 
 It stores a file (`~/.popme`) with key-value pairs like this:
 
-```
+```JSON
 {
   "google": "http://google.com",
   "ghapirails": "https://api.github.com/repos/rails/rails"
