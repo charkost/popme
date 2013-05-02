@@ -16,14 +16,32 @@ all other documentation is located at:
 
 ", ""]
        
-  LIST_MESSAGE = ""
+  LIST_MESSAGE = ["google => http://google.com
+youtube => http://youtube.com
+github => https://github.com
+popme => http://rubygems.org/gems/popme
+twitter => http://twitter.com
+local => http://localhost:3000
+tomdoc => http://tomdoc.org/
+facebook => http://facebook.com
+", ""]
+
+  before do
+    @cli = Popme::CLI.new
+  end
 
   it "should print the correct help message" do
-    cli = Popme::CLI.new
     out = capture_io do
-      cli.help
+      @cli.help
     end
     out.must_equal HELP_MESSAGE
+  end
+
+  it "should print the correct list message" do
+    out = capture_io do
+      @cli.list
+    end
+    out.must_equal LIST_MESSAGE
   end
 
 end
