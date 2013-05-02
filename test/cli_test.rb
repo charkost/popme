@@ -67,6 +67,13 @@ tomdoc => http://tomdoc.org/
     out.must_equal NEW_LIST_MESSAGE
   end
 
+  it "should print the correct message when deleting a site" do
+    out, err = capture_io do
+      @cli.rm("facebook")
+    end
+    out.must_equal "facebook deleted.\n"
+  end
+
   after do
     FileUtils.cp("examples/data.example.json", "examples/data.json")
   end
