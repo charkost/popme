@@ -1,0 +1,10 @@
+{
+  "google":"http://google.com",
+  "youtube":"http://youtube.com",
+  "github":"https://github.com",
+  "popme":"http://rubygems.org/gems/popme", 
+  "twitter":"http://twitter.com",
+  "local":"http://localhost:3000",
+  "tomdoc":"http://tomdoc.org/",
+  "facebook":"http://facebook.com"
+}
