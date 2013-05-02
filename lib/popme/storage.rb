@@ -51,7 +51,6 @@ module Popme
     def add_site(key, value)
       @list[key] = value
       save
-      puts "#{key} => #{value} saved to list."
     end
 
     def remove_site(key)

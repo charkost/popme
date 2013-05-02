@@ -4,7 +4,7 @@ require "popme/storage"
 
 describe Popme::CLI do
 
-  HELP_MESSAGE = ["################# PopMe Help #################
+  HELP_MESSAGE = "################# PopMe Help #################
 
 pop list                view a list of all your key-sites
 pop <key>               open the <value> for the selected <key> on browser
@@ -14,9 +14,9 @@ pop                     view this menu
 all other documentation is located at:
  https://github.com/eavgerinos/popme
 
-", ""]
+"
        
-  LIST_MESSAGE = ["google => http://google.com
+  LIST_MESSAGE = "google => http://google.com
 youtube => http://youtube.com
 github => https://github.com
 popme => http://rubygems.org/gems/popme
@@ -24,24 +24,36 @@ twitter => http://twitter.com
 local => http://localhost:3000
 tomdoc => http://tomdoc.org/
 facebook => http://facebook.com
-", ""]
+"
 
   before do
     @cli = Popme::CLI.new
   end
 
   it "should print the correct help message" do
-    out = capture_io do
+    out, err = capture_io do
       @cli.help
     end
     out.must_equal HELP_MESSAGE
   end
 
   it "should print the correct list message" do
-    out = capture_io do
+    out, err = capture_io do
       @cli.list
     end
     out.must_equal LIST_MESSAGE
+  end
+
+  it "should add sites" do
+    @cli.add("wat", "http://wat.wat")
+    out, err = capture_io do
+      @cli.list
+    end
+    out.must_equal LIST_MESSAGE + "wat => http://wat.wat\n"
+  end
+
+  after do
+    FileUtils.cp("examples/data.example.json", "examples/data.json")
   end
 
 end
