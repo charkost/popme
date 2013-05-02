@@ -3,6 +3,9 @@
 Open sites in browser through the terminal.
 
 [![Code Climate](https://codeclimate.com/github/eavgerinos/popme.png)](https://codeclimate.com/github/eavgerinos/popme)
+[![Build Status](https://travis-ci.org/eavgerinos/popme.png)](https://travis-ci.org/eavgerinos/popme)
+[![Coverage Status](https://coveralls.io/repos/eavgerinos/popme/badge.png?branch=master)](https://coveralls.io/r/eavgerinos/popme)
+
 
 ## Installation
 
@@ -91,6 +94,14 @@ Or
 
 ```
 $ pop
+```
+
+### Tests
+
+To run the tests simply do
+
+```
+$ rake
 ```
 
 ## Contributing

@@ -1,6 +1,4 @@
 require "test_helper"
-require "popme/cli"
-require "popme/storage"
 
 describe Popme::CLI do
 
@@ -24,6 +22,15 @@ twitter => http://twitter.com
 local => http://localhost:3000
 tomdoc => http://tomdoc.org/
 facebook => http://facebook.com
+"
+
+  NEW_LIST_MESSAGE = "google => http://google.com
+youtube => http://youtube.com
+github => https://github.com
+popme => http://rubygems.org/gems/popme
+twitter => http://twitter.com
+local => http://localhost:3000
+tomdoc => http://tomdoc.org/
 "
 
   before do
@@ -50,6 +57,14 @@ facebook => http://facebook.com
       @cli.list
     end
     out.must_equal LIST_MESSAGE + "wat => http://wat.wat\n"
+  end
+
+  it "should remove sites" do
+    @cli.rm("facebook")
+    out, err = capture_io do
+      @cli.list
+    end
+    out.must_equal NEW_LIST_MESSAGE
   end
 
   after do
