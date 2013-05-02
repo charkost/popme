@@ -1,9 +1,9 @@
+require "coveralls"
+Coveralls.wear!
+
 require "minitest/autorun"
 require "popme/cli"
 require "popme/storage"
-
-require "coveralls"
-Coveralls.wear!
 
 module Popme
   class Storage
