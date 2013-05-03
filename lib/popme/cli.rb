@@ -6,6 +6,7 @@ module Popme
 
     map "-l" => :list
     map "-h" => :help
+    map "-b" => :backup
 
     def initialize(*args)
       super
@@ -44,6 +45,11 @@ module Popme
     desc "rm [KEY]", "removes selected key if it exists" 
     def rm(key)
       @storage.remove_site(key)
+    end
+
+    desc "backup", "uploads ~/.popme file to a private anonymous gist"
+    def backup
+      @storage.backup
     end
   end
 end

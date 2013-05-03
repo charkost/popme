@@ -1,4 +1,5 @@
 require "json"
+require "net/http"
 
 module Popme
   class Storage
@@ -62,5 +63,25 @@ module Popme
         puts "Key: #{key} does not exist."
       end
     end
+
+    def backup
+      payload = {
+        'description' => "My test gist",
+        'public' => true,
+        'files' => {
+          'test.txt' => {
+          'content' => File.read(JSON_FILE) }}}
+      
+      uri = URI("https://api.github.com/gists")
+      req = Net::HTTP::Post.new(uri.path)
+      req.body = payload.to_json
+      res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
+        verify_mode = OpenSSL::SSL::VERIFY_PEER
+        http.request(req)
+      end
+      url = JSON.parse(res.body)
+      puts "You backup is done an saved @ #{url['html_url']}"
+    end
+
   end
 end
