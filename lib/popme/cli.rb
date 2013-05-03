@@ -31,6 +31,7 @@ module Popme
       puts 'pop <key>               open the <value> for the selected <key> on browser'
       puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
       puts 'pop rm <key>            removes <key> => <value> from list given key exists'
+      puts 'pop backup              backups your list into an anonymous private gist'
       puts 'pop                     view this menu'
       puts 'all other documentation is located at:'
       puts ' https://github.com/eavgerinos/popme'

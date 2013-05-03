@@ -8,6 +8,7 @@ pop list                view a list of all your key-sites
 pop <key>               open the <value> for the selected <key> on browser
 pop add <key> <value>   add a <key> => <value> pair to your list
 pop rm <key>            removes <key> => <value> from list given key exists
+pop backup              backups your list into an anonymous private gist
 pop                     view this menu
 all other documentation is located at:
  https://github.com/eavgerinos/popme
