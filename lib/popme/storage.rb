@@ -80,7 +80,7 @@ module Popme
         http.request(req)
       end
       url = JSON.parse(res.body)
-      puts "You backup is done an saved @ #{url['html_url']}"
+      puts "You backup is stored @ #{url['html_url']}"
     end
 
   end
