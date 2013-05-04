@@ -6,6 +6,7 @@ module Popme
 
     map "-l" => :list
     map "-h" => :help
+    map "-b" => :backup
 
     def initialize(*args)
       super
@@ -30,6 +31,7 @@ module Popme
       puts 'pop <key>               open the <value> for the selected <key> on browser'
       puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
       puts 'pop rm <key>            removes <key> => <value> from list given key exists'
+      puts 'pop backup              backups your list into an anonymous private gist'
       puts 'pop                     view this menu'
       puts 'all other documentation is located at:'
       puts ' https://github.com/eavgerinos/popme'
@@ -38,12 +40,21 @@ module Popme
     
     desc "open", "opens the given key if it exists"  
     def open(key)
-      Launchy.open(@storage.find_site(key))
+      if site = @storage.find_site(key)
+        Launchy.open(site)
+      else
+        puts "No such site"
+      end
     end
 
     desc "rm [KEY]", "removes selected key if it exists" 
     def rm(key)
       @storage.remove_site(key)
+    end
+
+    desc "backup", "uploads ~/.popme file to a private anonymous gist"
+    def backup
+      @storage.backup
     end
   end
 end

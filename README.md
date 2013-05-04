@@ -9,7 +9,7 @@ Open sites in browser through the terminal.
 
 ## Installation
 
-    $ gem install popme
+    gem install popme
 
 ## Usage
 
@@ -31,7 +31,7 @@ It comes with the "google" pair by default.
 You can open a site that exists in your file like this:
 
 ```
-$ pop google
+pop google
 ```
 
 ### Add
@@ -39,13 +39,13 @@ $ pop google
 You can add a site in the file like this:
 
 ```
-$ pop add <key> <value>
+pop add <key> <value>
 ```
 
 For example:
 
 ```
-$ pop add facebook http://facebook.com
+pop add facebook http://facebook.com
 ```
 
 ### Remove
@@ -53,13 +53,27 @@ $ pop add facebook http://facebook.com
 You can remove a site like this:
 
 ```
-$ pop rm <key>
+pop rm <key>
 ```
 
 For example:
 
 ```
-$ pop rm google
+pop rm google
+```
+
+### Backup
+
+You can keep backup of your site list in a nice private anonymous gist like this
+
+```
+pop backup
+```
+
+Or
+
+```
+pop -b
 ```
 
 ### List
@@ -67,13 +81,13 @@ $ pop rm google
 You can see the list of your key-value pairs by doing:
 
 ```
-$ pop list
+pop list
 ```
 
 Or
 
 ```
-$ pop -l
+pop -l
 ```
 
 ### Help
@@ -81,27 +95,27 @@ $ pop -l
 To view the help menu just do:
 
 ```
-$ pop help
+pop help
 ```
 
 Or 
 
 ```
-$ pop -h
+pop -h
 ```
 
 Or 
 
 ```
-$ pop
+pop
 ```
 
-### Tests
+## Tests
 
 To run the tests simply do
 
 ```
-$ rake
+rake
 ```
 
 ## Contributing
