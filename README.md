@@ -70,6 +70,12 @@ You can keep backup of your site list in a nice private anonymous gist like this
 pop backup
 ```
 
+Or
+
+```
+pop -b
+```
+
 ### List
 
 You can see the list of your key-value pairs by doing:
