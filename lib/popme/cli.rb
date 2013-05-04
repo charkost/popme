@@ -40,7 +40,11 @@ module Popme
     
     desc "open", "opens the given key if it exists"  
     def open(key)
-      Launchy.open(@storage.find_site(key))
+      if site = @storage.find_site(key)
+        Launchy.open(site)
+      else
+        puts "No such site"
+      end
     end
 
     desc "rm [KEY]", "removes selected key if it exists" 
