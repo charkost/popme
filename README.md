@@ -62,6 +62,14 @@ For example:
 pop rm google
 ```
 
+### Backup
+
+You can keep backup of your site list in a nice private anonymous gist like this
+
+```
+pop backup
+```
+
 ### List
 
 You can see the list of your key-value pairs by doing:
@@ -96,7 +104,7 @@ Or
 pop
 ```
 
-### Tests
+## Tests
 
 To run the tests simply do
 
