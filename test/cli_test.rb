@@ -39,14 +39,14 @@ tomdoc => http://tomdoc.org/
   end
 
   it "should print the correct help message" do
-    out, err = capture_io do
+    out, _ = capture_io do
       @cli.help
     end
     out.must_equal HELP_MESSAGE
   end
 
   it "should print the correct list message" do
-    out, err = capture_io do
+    out, _ = capture_io do
       @cli.list
     end
     out.must_equal LIST_MESSAGE
@@ -54,7 +54,7 @@ tomdoc => http://tomdoc.org/
 
   it "should add sites" do
     @cli.add("wat", "http://wat.wat")
-    out, err = capture_io do
+    out, _ = capture_io do
       @cli.list
     end
     out.must_equal LIST_MESSAGE + "wat => http://wat.wat\n"
@@ -62,14 +62,14 @@ tomdoc => http://tomdoc.org/
 
   it "should remove sites" do
     @cli.rm("facebook")
-    out, err = capture_io do
+    out, _ = capture_io do
       @cli.list
     end
     out.must_equal NEW_LIST_MESSAGE
   end
 
   it "should print the correct message when deleting a site" do
-    out, err = capture_io do
+    out, _ = capture_io do
       @cli.rm("facebook")
     end
     out.must_equal "facebook deleted.\n"
