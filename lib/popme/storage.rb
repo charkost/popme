@@ -62,10 +62,10 @@ module Popme
 
     def backup
       payload = {
-        'description' => "My test gist",
-        'public' => true,
+        'description' => "POPME backup",
+        'public' => false,
         'files' => {
-          'test.txt' => {
+          'popme_backup.json' => {
           'content' => File.read(JSON_FILE) }}}
 
       uri = URI("https://api.github.com/gists")
