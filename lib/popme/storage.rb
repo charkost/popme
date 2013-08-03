@@ -4,8 +4,6 @@ require "net/http"
 module Popme
   class Storage
     JSON_FILE = "#{ENV['HOME']}/.popme"
-    
-    attr_reader :list
 
     def initialize
       @list = {}
@@ -14,7 +12,6 @@ module Popme
       populate
     end
 
-    attr_accessor :list
 
     def bootstrap
       return if File.exists?(JSON_FILE)
