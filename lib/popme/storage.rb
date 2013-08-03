@@ -12,7 +12,6 @@ module Popme
       populate
     end
 
-
     def bootstrap
       return if File.exists?(JSON_FILE)
       @bootstraped = true
@@ -53,7 +52,7 @@ module Popme
 
     def remove_site(key)
       if find_site(key)
-        @list.delete(key) 
+        @list.delete(key)
         save
         puts "#{key} deleted."
       else
@@ -68,7 +67,7 @@ module Popme
         'files' => {
           'test.txt' => {
           'content' => File.read(JSON_FILE) }}}
-      
+
       uri = URI("https://api.github.com/gists")
       req = Net::HTTP::Post.new(uri.path)
       req.body = payload.to_json
@@ -79,6 +78,5 @@ module Popme
       url = JSON.parse(res.body)
       puts "You backup is stored @ #{url['html_url']}"
     end
-
   end
 end

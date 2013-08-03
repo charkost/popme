@@ -37,8 +37,8 @@ module Popme
       puts ' https://github.com/eavgerinos/popme'
       puts ''
     end
-    
-    desc "open", "opens the given key if it exists"  
+
+    desc "open", "opens the given key if it exists"
     def open(key)
       if site = @storage.find_site(key)
         Launchy.open(site)
@@ -47,7 +47,7 @@ module Popme
       end
     end
 
-    desc "rm [KEY]", "removes selected key if it exists" 
+    desc "rm [KEY]", "removes selected key if it exists"
     def rm(key)
       @storage.remove_site(key)
     end
