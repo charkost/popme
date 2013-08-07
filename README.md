@@ -98,13 +98,13 @@ To view the help menu just do:
 pop help
 ```
 
-Or 
+Or
 
 ```
 pop -h
 ```
 
-Or 
+Or
 
 ```
 pop
@@ -117,11 +117,3 @@ To run the tests simply do
 ```
 rake
 ```
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
