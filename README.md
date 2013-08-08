@@ -1,21 +1,22 @@
 # PopMe
 
-Open sites in browser through the terminal.
+Open websites in browser through the terminal.
 
-[![Code Climate](https://codeclimate.com/github/eavgerinos/popme.png)](https://codeclimate.com/github/eavgerinos/popme)
-[![Build Status](https://travis-ci.org/eavgerinos/popme.png)](https://travis-ci.org/eavgerinos/popme)
-[![Coverage Status](https://coveralls.io/repos/eavgerinos/popme/badge.png?branch=master)](https://coveralls.io/r/eavgerinos/popme)
+[![Gem Version](https://badge.fury.io/rb/popme.png)][rubygems]
+[![Build Status](https://secure.travis-ci.org/eavgerinos/popme.png?branch=master)][travis]
+[![Coverage Status](https://coveralls.io/repos/eavgerinos/popme/badge.png?branch=master)][coveralls]
+[![Code Climate](https://codeclimate.com/github/eavgerinos/popme.png)][codeclimate]
 
 
 ## Installation
 
-    gem install popme
+```sh
+gem install popme
+```
 
 ## Usage
 
-Just a simple gem.
-
-It stores a file (`~/.popme`) with key-value pairs like this:
+PopMe stores a website to the file (`~/.popme`) with key-value pairs like this:
 
 ```JSON
 {
@@ -23,97 +24,62 @@ It stores a file (`~/.popme`) with key-value pairs like this:
   "ghapirails": "https://api.github.com/repos/rails/rails"
 }
 ```
+> It comes with the "google" website by default.
 
-It comes with the "google" pair by default.
-
-### Open
+### Open a website
 
 You can open a site that exists in your file like this:
 
-```
+```sh
 pop google
 ```
 
-### Add
+### Add a website
 
-You can add a site in the file like this:
+You can add a website to the list like this:
 
-```
-pop add <key> <value>
-```
-
-For example:
-
-```
+```sh
 pop add facebook http://facebook.com
 ```
 
-### Remove
+### Remove a website
+You can remove a website from the list like this:
 
-You can remove a site like this:
-
-```
-pop rm <key>
-```
-
-For example:
-
-```
-pop rm google
+```sh
+pop rm facebook
 ```
 
-### Backup
+### List all websites
 
-You can keep backup of your site list in a nice private anonymous gist like this
+You can view the list of your stored websites
 
-```
-pop backup
-```
-
-Or
-
-```
-pop -b
+```sh
+pop list # Alias command: pop -l
 ```
 
-### List
+### Backup website list
 
-You can see the list of your key-value pairs by doing:
+You can keep backup of your websites list in a private gist like this
 
-```
-pop list
-```
-
-Or
-
-```
-pop -l
+```sh
+pop backup # Alias command: pop -b
 ```
 
-### Help
+### Open help menu
 
-To view the help menu just do:
+To open the help menu write a command
 
-```
-pop help
-```
-
-Or
-
-```
-pop -h
+```sh
+pop # Alias command: pop -h, pop help
 ```
 
-Or
+## Copyright
+Copyright (c) 2013 Angel Avgerinos.
+See [LICENSE][] for details.
 
-```
-pop
-```
+[rubygems]: https://rubygems.org/gems/popme
+[travis]: http://travis-ci.org/eavgerinos/popme
+[coveralls]: https://coveralls.io/r/eavgerinos/popme
+[codeclimate]: https://codeclimate.com/github/eavgerinos/popme
 
-## Tests
-
-To run the tests simply do
-
-```
-rake
-```
+[license]: LICENSE.txt
