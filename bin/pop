@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require "popme/cli"
-require "popme/storage"
+
 commands = %[add list -l help -h rm backup -b]
 if ARGV[0]
   if commands.include?(ARGV[0])

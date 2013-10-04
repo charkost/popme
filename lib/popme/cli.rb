@@ -1,5 +1,7 @@
 require "thor"
 require "launchy"
+require "popme/storage"
+require "popme/verification"
 
 module Popme
   class CLI < Thor
@@ -42,6 +44,8 @@ module Popme
     def open(key)
       if site = @storage.find_site(key)
         Launchy.open(site)
+      elsif Popme::Verification.url_exists?(key)
+        Launchy.open(key)
       else
         puts "No such site"
       end
