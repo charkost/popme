@@ -6,6 +6,7 @@ describe Popme::CLI do
 
 pop list                view a list of all your key-sites
 pop <key>               open the <value> for the selected <key> on browser
+pop <URL>               open the <URL> directly on browser
 pop add <key> <value>   add a <key> => <value> pair to your list
 pop rm <key>            removes <key> => <value> from list given key exists
 pop backup              backups your list into an anonymous private gist
