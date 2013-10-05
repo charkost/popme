@@ -34,6 +34,12 @@ You can open a site that exists in your file like this:
 pop google
 ```
 
+You can open a site that does not exists in your file using a URL like this:
+
+```sh
+pop www.google.com
+```
+
 ### Add a website
 
 You can add a website to the list like this:
