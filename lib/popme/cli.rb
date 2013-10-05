@@ -1,5 +1,7 @@
 require "thor"
 require "launchy"
+require "popme/storage"
+require "popme/verification"
 
 module Popme
   class CLI < Thor
@@ -29,6 +31,7 @@ module Popme
       puts ''
       puts 'pop list                view a list of all your key-sites'
       puts 'pop <key>               open the <value> for the selected <key> on browser'
+      puts 'pop <URL>               open the <URL> directly on browser'
       puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
       puts 'pop rm <key>            removes <key> => <value> from list given key exists'
       puts 'pop backup              backups your list into an anonymous private gist'
@@ -42,6 +45,8 @@ module Popme
     def open(key)
       if site = @storage.find_site(key)
         Launchy.open(site)
+      elsif Popme::Verification.url_exists?(key)
+        Launchy.open(key)
       else
         puts "No such site"
       end
