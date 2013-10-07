@@ -10,6 +10,7 @@ pop <URL>               open the <URL> directly on browser
 pop add <key> <value>   add a <key> => <value> pair to your list
 pop rm <key>            removes <key> => <value> from list given key exists
 pop backup              backups your list into an anonymous private gist
+pop search <query>      searches google using the given query
 pop                     view this menu
 all other documentation is located at:
  https://github.com/eavgerinos/popme

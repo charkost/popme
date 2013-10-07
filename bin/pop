@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "popme/cli"
 
-commands = %[add list -l help -h rm backup -b]
+commands = %[add list -l help -h rm backup -b search -s]
 if ARGV[0]
   if commands.include?(ARGV[0])
     Popme::CLI.start(ARGV)
