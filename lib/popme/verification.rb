@@ -14,7 +14,7 @@ module Popme
         return false
       end
 
-      return false unless header.code == "200" or header.code == "301" #200=OK, 301=Redirect
+      return false unless header.code == "200" or header.code.start_with?("3") #200=OK, 3xx=Redirect
       true
     end
   end
