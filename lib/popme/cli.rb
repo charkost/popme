@@ -70,29 +70,25 @@ module Popme
       search = Popme::Search.new(query)
 
       if search.results.size > 0
-        _pop_search_results(search)
+        pop_search_results(search)
       else
         puts "No results"
       end
-      
-      rescue SystemExit, Interrupt
-        puts "\nInterrupt received exiting..."
-        exit
     end
 
     private
-    def _pop_search_results(search)
+    def pop_search_results(search)
       puts search
 
-      print "Select a site or more using ',' to pop (default = 1): "
+      print "Select a site or more using ',' to pop (default = 0): "
       begin
-        indexes = $stdin.gets
+        indexes = STDIN.gets
       end until indexes
-      indexes = "1" if indexes.start_with?("\n")
+      indexes = "0" if indexes.start_with?("\n")
 
       indexes.split(",").map(&:to_i).each do |index|
-        if index <= search.results.size && index > 0
-          Launchy.open(search.results[index - 1].url)
+        if index <= search.results.size - 1 && index >= 0 
+          Launchy.open(search.results[index].url)
           sleep 0.1
         else
           puts "No such search result index"

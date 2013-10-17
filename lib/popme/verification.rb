@@ -1,7 +1,7 @@
 require "net/http"
 
 module Popme
-  class Verification
+  module Verification
     def self.url_exists?(url)
       begin
         uri = URI(url.start_with?("http://") ? url : "http://#{url}")
