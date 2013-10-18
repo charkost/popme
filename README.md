@@ -65,10 +65,18 @@ pop list # Alias command: pop -l
 
 ### Backup website list
 
-You can keep backup of your websites list in a private gist like this
+You can keep backup of your websites list in a private gist like this:
 
 ```sh
 pop backup # Alias command: pop -b
+```
+
+### Search a website
+
+You can search a site that does not exists in your file like this:
+
+```sh
+pop search github # Alias command: pop -s github
 ```
 
 ### Open help menu

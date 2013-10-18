@@ -72,11 +72,11 @@ module Popme
       req = Net::HTTP::Post.new(uri.path)
       req.body = payload.to_json
       res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
-        verify_mode = OpenSSL::SSL::VERIFY_PEER
+        OpenSSL::SSL::VERIFY_PEER
         http.request(req)
       end
       url = JSON.parse(res.body)
-      puts "You backup is stored @ #{url['html_url']}"
+      puts "Your backup is stored @ #{url['html_url']}"
     end
   end
 end

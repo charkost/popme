@@ -1,25 +1,21 @@
 require "net/http"
-require "uri"
 
 module Popme
-  class Verification
-
+  module Verification
     def self.url_exists?(url)
-      header = nil
-
       begin
-        uri = URI(url.start_with?("http://") ? url : "http://" + url)
+        uri = URI(url.start_with?("http://") ? url : "http://#{url}")
+
         http = Net::HTTP.new(uri.host)
-        http.open_timeout = 1
-        http.read_timeout = 1
+        http.open_timeout, http.read_timeout = [1, 1]
+  
         header = http.start.head(uri.path.start_with?("/") ? uri.path : "/")
       rescue Exception
         return false
       end
 
-      return false unless header.code == "200" or header.code == "301" #200=OK, 301=Redirect
+      return false unless header.code == "200" or header.code.start_with?("3") #200=OK, 3xx=Redirect
       true
     end
-
   end
 end

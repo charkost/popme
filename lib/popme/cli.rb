@@ -2,13 +2,14 @@ require "thor"
 require "launchy"
 require "popme/storage"
 require "popme/verification"
+require "popme/search"
 
 module Popme
   class CLI < Thor
-
     map "-l" => :list
     map "-h" => :help
     map "-b" => :backup
+    map "-s" => :search
 
     def initialize(*args)
       super
@@ -35,6 +36,7 @@ module Popme
       puts 'pop add <key> <value>   add a <key> => <value> pair to your list'
       puts 'pop rm <key>            removes <key> => <value> from list given key exists'
       puts 'pop backup              backups your list into an anonymous private gist'
+      puts 'pop search <query>      searches google using the given query'
       puts 'pop                     view this menu'
       puts 'all other documentation is located at:'
       puts ' https://github.com/eavgerinos/popme'
@@ -48,7 +50,7 @@ module Popme
       elsif Popme::Verification.url_exists?(key)
         Launchy.open(key)
       else
-        puts "No such site"
+        puts "No such website"
       end
     end
 
@@ -60,6 +62,38 @@ module Popme
     desc "backup", "uploads ~/.popme file to a private anonymous gist"
     def backup
       @storage.backup
+    end
+
+    desc "search [QUERY]", "search for sites related with the given key using google"
+    def search(*query)
+      query = query.join(" ")
+      search = Popme::Search.new(query)
+
+      if search.results.size > 0
+        pop_search_results(search)
+      else
+        puts "No results"
+      end
+    end
+
+    private
+    def pop_search_results(search)
+      puts search
+
+      print "Select a site or more using ',' to pop (default = 0): "
+      begin
+        indexes = STDIN.gets
+      end until indexes
+      indexes = "0" if indexes.start_with?("\n")
+
+      indexes.split(",").map(&:to_i).each do |index|
+        if index <= search.results.size - 1 && index >= 0 
+          Launchy.open(search.results[index].url)
+          sleep 0.1
+        else
+          puts "No such search result index"
+        end
+      end
     end
   end
 end

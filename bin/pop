@@ -1,15 +1,20 @@
 #!/usr/bin/env ruby
 require "popme/cli"
 
-commands = %[add list -l help -h rm backup -b]
-if ARGV[0]
-  if commands.include?(ARGV[0])
-    Popme::CLI.start(ARGV)
+commands = %[add list -l help -h rm backup -b search -s]
+begin
+  if ARGV[0]
+    if commands.include?(ARGV[0])
+      Popme::CLI.start(ARGV)
+    else
+      cli = Popme::CLI.new
+      cli.open(ARGV[0])
+    end
   else
     cli = Popme::CLI.new
-    cli.open(ARGV[0])
+    cli.help
   end
-else
-  cli = Popme::CLI.new
-  cli.help
+rescue SystemExit, Interrupt
+  puts "\nInterrupt received exiting..."
+  exit
 end
