@@ -87,6 +87,13 @@ To open the help menu write a command
 pop # Alias command: pop -h, pop help
 ```
 
+## Contributors
+[@charkost](https://github.com/charkost)
+
+[@jpalumickas](https://github.com/jpalumickas)
+
+[@steveklabnik](https://github.com/steveklabnik)
+
 ## Copyright
 Copyright (c) 2013 Angel Avgerinos.
 See [LICENSE][] for details.
