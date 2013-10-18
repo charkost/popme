@@ -8,7 +8,7 @@ module Popme
 
         http = Net::HTTP.new(uri.host)
         http.open_timeout, http.read_timeout = [1, 1]
-  
+
         header = http.start.head(uri.path.start_with?("/") ? uri.path : "/")
       rescue Exception
         return false
