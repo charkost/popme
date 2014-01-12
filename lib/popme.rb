@@ -1,1 +1,13 @@
-require "popme/cli"
+require 'thor'
+require 'launchy'
+require 'net/http'
+require 'json'
+require 'cgi'
+require 'json'
+
+require 'popme/version'
+require 'popme/cli'
+require 'popme/storage'
+require 'popme/verification'
+require 'popme/core_ext'
+require 'popme/search'

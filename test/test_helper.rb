@@ -3,7 +3,7 @@ Coveralls.wear!
 
 require "minitest/autorun"
 require "stringio"
-require "popme/cli"
+require "popme"
 
 module Popme
   class Storage
