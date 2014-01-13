@@ -63,7 +63,8 @@ class Popme::CLI < Thor
     search = Popme::Search.new(query)
 
     if search.results.any?
-      pop_search_results(search)
+      puts search
+      select_results_to_pop(search)
     else
       puts 'No results'
     end
@@ -71,23 +72,29 @@ class Popme::CLI < Thor
 
   private
 
-  def pop_search_results(search)
-    puts search
-
+  def select_results_to_pop(search)
     print 'Select a site or more using ',' to pop (default = 0): '
+
+    indexes.each do |index|
+      pop_result(search, index)
+    end
+  end
+
+  def indexes
     begin
       indexes = STDIN.gets
     end until indexes
 
     indexes = '0' if indexes[0] == '\n'
+    indexes.split(',').map(&:to_i)
+  end
 
-    indexes.split(',').map(&:to_i).each do |index|
-      if search.results[index]
-        Launchy.open(search.results[index].url)
-        sleep 0.1
-      else
-        puts 'No such search result index'
-      end
+  def pop_result(search, index)
+    if search.results[index]
+      Launchy.open(search.results[index].url)
+      sleep 0.1
+    else
+      puts 'No such search result index'
     end
   end
 end
