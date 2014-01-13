@@ -1,10 +1,6 @@
 class String
   def utf8_encode
-    if encoding == Encoding::UTF_8
-      self
-    else
-      force_encoding('ISO-8859-1').encode('UTF-8')
-    end
+    encoding != Encoding::UTF_8 ? force_encoding('ISO-8859-1').encode('UTF-8') : self
   end
 
   def unescape_html
