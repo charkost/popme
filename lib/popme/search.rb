@@ -32,12 +32,15 @@ class Popme::Search
 
   def parse_google_results
     response.scan(PARSE_REGEX).map(&rm_tags).each do |result|
-      @results << Popme::Search::SearchResult.new(*result)
+      @results << SearchResult.new(*result)
     end
   end
 
   def response
     Net::HTTP.get(request_uri).utf8_encode.unescape_html
+  rescue => e
+    puts "#{e.class}: #{e.message.strip}"
+    ""
   end
 
   def request_uri
